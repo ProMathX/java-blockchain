@@ -16,17 +16,18 @@ public class javachain {
 
         blockchain.add(new Block("Second Block", blockchain.get(blockchain.size()-1).hash));
         System.out.println("Mining block 2");
-        blockchain.get(1).mineBlock(difficulty + 1);
+        blockchain.get(1).mineBlock(difficulty);
 
         blockchain.add(new Block("Third block",blockchain.get(blockchain.size()-1).hash));
         System.out.println("Mining block 3");
-        blockchain.get(2).mineBlock(difficulty + 2);
+        blockchain.get(2).mineBlock(difficulty);
 
         String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
+        System.out.println("\n The block chain: ");
         System.out.println(blockchainJson);
     }
     // check the validity
-    public static Boolean Validity(List<Block> blockchain) {
+    public static Boolean Validity() {
         Block currentBlock;
         Block previousBlock;
 
